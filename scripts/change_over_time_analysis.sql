@@ -22,7 +22,7 @@ SQL Functions Used:
 SELECT
 DATETRUNC(MONTH, order_date) AS order_date,
 sum(sales_amount) AS total_sales,
-COUNT(customer_key) AS total_customers,
+COUNT(DISTINCT customer_key) AS total_customers,
 SUM(quantity) AS total_quantity
 FROM gold.fact_sales
 WHERE order_date IS NOT NULL
@@ -34,7 +34,7 @@ SELECT
 YEAR(order_date) AS order_year,
 MONTH(order_date) AS order_month,
 sum(sales_amount) AS total_sales,
-COUNT(customer_key) AS total_customers,
+COUNT(DISTINCT customer_key) AS total_customers,
 SUM(quantity) AS total_quantity
 FROM gold.fact_sales
 WHERE order_date IS NOT NULL
